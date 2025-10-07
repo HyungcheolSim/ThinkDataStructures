@@ -122,7 +122,7 @@ public class JedisIndex {
 		int i = 0;
 		for (String url: urls) {
 			System.out.println(url);
-			Integer count = new Integer((String) res.get(i++));
+			Integer count = Integer.valueOf((String) res.get(i++));
 			map.put(url, count);
 		}
 		return map;
@@ -138,7 +138,7 @@ public class JedisIndex {
 	public Integer getCount(String url, String term) {
 		String redisKey = termCounterKey(url);
 		String count = jedis.hget(redisKey, term);
-		return new Integer(count);
+		return Integer.valueOf(count);
 	}
 
 	/**

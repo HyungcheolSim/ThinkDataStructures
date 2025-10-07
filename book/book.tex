@@ -7267,7 +7267,7 @@ Here are the implementations:
     public Integer getCount(String url, String term) {
         String redisKey = termCounterKey(url);
         String count = jedis.hget(redisKey, term);
-        return new Integer(count);
+        return Integer.valueOf(count);
     }
 \end{verbatim}
 
